@@ -6,6 +6,7 @@
 //
 
 /*
+    10월 4일 MyTodoList 시작
     Main Home View
     
     MVVM 사용
@@ -16,7 +17,7 @@
     - List
     - PageView
     - scrollView
- 
+    
  */
 
 import SwiftUI
