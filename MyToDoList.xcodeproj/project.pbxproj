@@ -13,6 +13,8 @@
 		1E13457E28E1869C0058A97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E13457D28E1869C0058A97B /* Preview Assets.xcassets */; };
 		1E13458628E189B60058A97B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13458528E189B60058A97B /* ListView.swift */; };
 		1E13458828E192860058A97B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13458728E192860058A97B /* OnBoardingView.swift */; };
+		1E13458C28EBF10E0058A97B /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13458B28EBF10E0058A97B /* ListRowView.swift */; };
+		1E13458E28EC04F50058A97B /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13458D28EC04F50058A97B /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		1E13457D28E1869C0058A97B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E13458528E189B60058A97B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		1E13458728E192860058A97B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		1E13458B28EBF10E0058A97B /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		1E13458D28EC04F50058A97B /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				1E13458528E189B60058A97B /* ListView.swift */,
 				1E13458728E192860058A97B /* OnBoardingView.swift */,
+				1E13458B28EBF10E0058A97B /* ListRowView.swift */,
+				1E13458D28EC04F50058A97B /* AddView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			files = (
 				1E13457928E1869B0058A97B /* TodoListView.swift in Sources */,
 				1E13457728E1869B0058A97B /* MyToDoListApp.swift in Sources */,
+				1E13458E28EC04F50058A97B /* AddView.swift in Sources */,
+				1E13458C28EBF10E0058A97B /* ListRowView.swift in Sources */,
 				1E13458828E192860058A97B /* OnBoardingView.swift in Sources */,
 				1E13458628E189B60058A97B /* ListView.swift in Sources */,
 			);

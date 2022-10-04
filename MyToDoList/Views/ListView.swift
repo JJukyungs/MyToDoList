@@ -16,13 +16,8 @@ struct ListView: View {
             Text("todo1")
         }
         .navigationTitle("TodoList")
+        
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ListView()
-        }
-    }
-}
+

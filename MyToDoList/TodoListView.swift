@@ -11,7 +11,7 @@
     
     MVVM 사용
  
-    Add View
+    View
     - NavigationView
     - TabView
     - List
@@ -23,15 +23,36 @@
 import SwiftUI
 
 struct TodoListView: View {
+    
+    // TodoList Items
+    @State var items: [String] = [
+        "first test",
+        "second test",
+        "third test"
+    ]
+    
     var body: some View {
-        NavigationView {
-            Text("homeView")
+        List {
+            ForEach(items, id: \.self) { item in
+                ListRowView(title: item)
+            }
         }
+        .listStyle(PlainListStyle())
+        .navigationTitle("My TodoList")
+        .navigationBarItems(
+            leading: EditButton(),
+            trailing: NavigationLink("Add", destination: AddView())
+        )
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView()
+        NavigationView {
+            TodoListView()
+        }
     }
 }
+
+
+
