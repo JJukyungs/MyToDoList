@@ -16,7 +16,6 @@ struct ListView: View {
             Text("todo1")
         }
         .navigationTitle("TodoList")
-        
     }
 }
 
