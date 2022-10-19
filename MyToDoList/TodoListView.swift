@@ -45,7 +45,7 @@ struct TodoListView: View {
     /// Test용으로 문자열을 집어 넣음, 추 후 입력받은 데이터로 저장할 수 있도록 변경
     @State var items: [ItemModel] = [
         ItemModel(title: "first title", isCompleted: false),
-        ItemModel(title: "second title", isCompleted: false),
+        ItemModel(title: "second title", isCompleted: true),
         ItemModel(title: "third title", isCompleted: false)
     ]
     
@@ -53,8 +53,7 @@ struct TodoListView: View {
         
         List {
             ForEach(items) { item in
-                Text("hello")
-//                ListRowView(title: item)
+                ListRowView(item: item)
             }
         }
         .listStyle(PlainListStyle())
