@@ -43,17 +43,18 @@ struct TodoListView: View {
     
     // TodoList Items
     /// Test용으로 문자열을 집어 넣음, 추 후 입력받은 데이터로 저장할 수 있도록 변경
-    @State var items: [String] = [
-        "first test",
-        "second test",
-        "third test"
+    @State var items: [ItemModel] = [
+        ItemModel(title: "first title", isCompleted: false),
+        ItemModel(title: "second title", isCompleted: false),
+        ItemModel(title: "third title", isCompleted: false)
     ]
     
     var body: some View {
         
         List {
-            ForEach(items, id: \.self) { item in
-                ListRowView(title: item)
+            ForEach(items) { item in
+                Text("hello")
+//                ListRowView(title: item)
             }
         }
         .listStyle(PlainListStyle())
