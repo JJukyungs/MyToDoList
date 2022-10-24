@@ -18,6 +18,10 @@
     - PageView
     - scrollView
     
+ 
+    Method 명칭 정의
+    - event 발생시키기 위해 사용되는 함수는 will
+    - event 발생 후 사용하는 함수는 did
  */
 
 
@@ -41,20 +45,22 @@ import SwiftUI
 
 struct TodoListView: View {
     
-    // TodoList Items
-    /// Test용으로 문자열을 집어 넣음, 추 후 입력받은 데이터로 저장할 수 있도록 변경
-    @State var items: [ItemModel] = [
-        ItemModel(title: "first title", isCompleted: false),
-        ItemModel(title: "second title", isCompleted: true),
-        ItemModel(title: "third title", isCompleted: false)
-    ]
+    // ViewModel을 사용할 수 있게 한번 더 호출
+    @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
         
         List {
-            ForEach(items) { item in
+            ForEach(listViewModel.items) { item in
                 ListRowView(item: item)
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            listViewModel.willUpdateItem(item: item)
+                        }
+                    }
             }
+            .onDelete(perform: listViewModel.willDeleteItem)
+            .onMove(perform: listViewModel.didMoveItem)
         }
         .listStyle(PlainListStyle())
         .navigationTitle("My TodoList")
@@ -63,6 +69,9 @@ struct TodoListView: View {
             trailing: NavigationLink("Add", destination: AddView())
         )
     }
+    
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -70,6 +79,8 @@ struct ContentView_Previews: PreviewProvider {
         NavigationView {
             TodoListView()
         }
+        .environmentObject(ListViewModel())
+        // environmentObject 추가 이유: Canvas에서 확인을 하기 위해5
     }
 }
 
