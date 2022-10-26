@@ -12,7 +12,13 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     
-    @Published var items: [ItemModel] = []
+    @Published var items: [ItemModel] = [] {
+        didSet {
+            // didSet 을 활용하여 items 배열이 변경될 떄마다 willSaveItems 호출
+            willSaveItems()
+        }
+    }
+    let itemsKey: String = "items_list"
     
     init() {
         willGetItems()
@@ -21,12 +27,15 @@ class ListViewModel: ObservableObject {
     // MARK: - willGetItems
     /// View에서 사용할 수 있도록 Items을 입력 추가 해줄 수 있도록하는 Method
     func willGetItems() {
-        let newItems = [
-            ItemModel(title: "first title", isCompleted: false),
-            ItemModel(title: "second title", isCompleted: true),
-            ItemModel(title: "third title", isCompleted: false)
-        ]
-        items.append(contentsOf: newItems)
+        
+        guard
+            // Json으로 데이터 변환된 파일이 저장된 UserDefaults을 사용하여 불러옴
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            // 인코딩된 데이터을 디코딩으로 풀어 ItemModel 배열에 맞게 넣음
+            let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data)
+        else { return }
+        
+        self.items = savedItems
     }
     
     // MARK: - List Method
@@ -34,6 +43,7 @@ class ListViewModel: ObservableObject {
     // List 삭제 기능
     func willDeleteItem(indexSet: IndexSet) {
         items.remove(atOffsets: indexSet)
+        
     }
     
     // Edit 버튼을 클릭 시 List 삭제, 이동
@@ -53,5 +63,14 @@ class ListViewModel: ObservableObject {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             items[index] = item.willUpdateCompletion()
         }
+    }
+    
+    func willSaveItems() {
+        
+        // 인코딩
+        if let encodeData = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encodeData, forKey: itemsKey)
+        }
+        
     }
 }

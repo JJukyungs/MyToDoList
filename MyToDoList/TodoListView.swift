@@ -39,6 +39,10 @@
     - Chart 부분 사용할 수 있으면 사용
     - TabView 사용하여 화면 분리(Main Home, 캘린더)
     - Add, Edit 부분 수정 후 MyPage Image 삽입 후 MyPageView 연결
+ 
+    데이터 저장
+    - UserDefault 사용
+    - Json 으로 
  */
 
 import SwiftUI
