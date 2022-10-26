@@ -40,9 +40,12 @@
     - TabView 사용하여 화면 분리(Main Home, 캘린더)
     - Add, Edit 부분 수정 후 MyPage Image 삽입 후 MyPageView 연결
  
+    Empty View
+    - TodoList Items이 없을 경우 보여줄 View
+ 
     데이터 저장
     - UserDefault 사용
-    - Json 으로 
+    - Json 으로
  */
 
 import SwiftUI
@@ -54,19 +57,26 @@ struct TodoListView: View {
     
     var body: some View {
         
-        List {
-            ForEach(listViewModel.items) { item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            listViewModel.willUpdateItem(item: item)
-                        }
+        ZStack {
+            if listViewModel.items.isEmpty {
+                EmptyListView()
+                    .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(listViewModel.items) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    listViewModel.willUpdateItem(item: item)
+                                }
+                            }
                     }
+                    .onDelete(perform: listViewModel.willDeleteItem)
+                    .onMove(perform: listViewModel.didMoveItem)
+                }
+                .listStyle(PlainListStyle())
             }
-            .onDelete(perform: listViewModel.willDeleteItem)
-            .onMove(perform: listViewModel.didMoveItem)
         }
-        .listStyle(PlainListStyle())
         .navigationTitle("My TodoList")
         .navigationBarItems(
             leading: EditButton(),
@@ -84,7 +94,7 @@ struct ContentView_Previews: PreviewProvider {
             TodoListView()
         }
         .environmentObject(ListViewModel())
-        // environmentObject 추가 이유: Canvas에서 확인을 하기 위해5
+        // environmentObject 추가 이유: Canvas에서 확인을 하기 위해
     }
 }
 
