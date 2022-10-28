@@ -40,6 +40,7 @@ struct EmptyListView: View {
                 .padding(.horizontal, 50)
                 .scaleEffect(1.0)
             }
+            .frame(maxWidth: 400)
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear(perform: willAddAnimation)
