@@ -85,10 +85,10 @@
 		1E13458428E188170058A97B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E13457828E1869B0058A97B /* TodoListView.swift */,
 				1E13458728E192860058A97B /* OnBoardingView.swift */,
 				1E13458B28EBF10E0058A97B /* ListRowView.swift */,
 				1E13458D28EC04F50058A97B /* AddView.swift */,
-				1E13457828E1869B0058A97B /* TodoListView.swift */,
 				1E13459429091F910058A97B /* EmptyListView.swift */,
 			);
 			path = Views;

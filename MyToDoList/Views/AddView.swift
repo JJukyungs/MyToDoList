@@ -18,17 +18,17 @@ struct AddView: View {
     
     var body: some View {
         ScrollView {
+            Spacer(minLength: 30)
             VStack {
-                TextField("Type sometiong here...", text: $textFieldText)
+                TextField("TodoList를 입력해주세요!", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(10)
-//                    .opacity(0.7)
                 
                 Button(action: willSaveButtonPressed,
                        label: {
-                    Text("Save".uppercased())
+                    Text("저 장".uppercased())
                         .foregroundColor(.white)
                         .font(.headline)
                         .frame(height: 55)
@@ -40,7 +40,7 @@ struct AddView: View {
             }
             .padding(15)
         }
-        .navigationTitle("Add an Item")
+        .navigationTitle("TodoList 추가")
         .alert(isPresented: $showAlert) {
             willGetAlert()
         }

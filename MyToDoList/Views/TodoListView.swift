@@ -13,7 +13,6 @@
  
     View
     - NavigationView
-    - TabView
     - List
     - PageView
     - scrollView

@@ -15,7 +15,7 @@ import SwiftUI
 
 struct OnBoardingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("온보딩 페이지")
     }
 }
 

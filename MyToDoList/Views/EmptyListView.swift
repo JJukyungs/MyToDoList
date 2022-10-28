@@ -70,7 +70,7 @@ struct EmptyListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             EmptyListView()
-                .navigationTitle("Title")
+                .navigationTitle("제목")
         }
     }
 }
