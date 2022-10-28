@@ -22,9 +22,9 @@ struct AddView: View {
                 TextField("Type sometiong here...", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
-                    .background(Color(.lightGray))
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(10)
-                    .opacity(0.7)
+//                    .opacity(0.7)
                 
                 Button(action: willSaveButtonPressed,
                        label: {
