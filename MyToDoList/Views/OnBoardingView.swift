@@ -8,6 +8,7 @@
 /*
     첫 앱을 시작했을 때 사용법을 소개해주는
     OnBoarding View
+    - 추후 추가 예정
  */
 
 import SwiftUI
